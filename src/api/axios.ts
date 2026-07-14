@@ -1,7 +1,11 @@
 import axios from "axios";
 
+
+
+const baseURL = "https://learning-hub-server.onrender.com"
+// const baseUrl="http://localhost:5000"
 const api = axios.create({
-  baseURL: "/api",
+  baseURL,
   withCredentials: true,
   headers: {
     "Content-Type": "application/json",
