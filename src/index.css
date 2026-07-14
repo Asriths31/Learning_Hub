@@ -1,0 +1,142 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Base styles */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: "Inter", system-ui, sans-serif;
+  background-color: #f5f0f8;
+  color: #1a1a2e;
+  -webkit-font-smoothing: antialiased;
+}
+
+/* Screenshot prevention styles */
+.no-select {
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+  -webkit-user-drag: none;
+}
+
+/* Scrollbar styling */
+::-webkit-scrollbar {
+  width: 6px;
+}
+
+::-webkit-scrollbar-track {
+  background: #f5f0f8;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #c3aed6;
+  border-radius: 3px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #9b7fbf;
+}
+
+/* Skeleton animation */
+@keyframes shimmer {
+  0% {
+    background-position: -200% 0;
+  }
+  100% {
+    background-position: 200% 0;
+  }
+}
+
+.skeleton {
+  background: linear-gradient(90deg, #e8daf0 25%, #f5f0f8 50%, #e8daf0 75%);
+  background-size: 200% 100%;
+  animation: shimmer 1.5s infinite;
+  border-radius: 8px;
+}
+
+/* Progress bar animation */
+@keyframes progress-fill {
+  from {
+    width: 0%;
+  }
+}
+
+.progress-animate {
+  animation: progress-fill 0.8s ease-out;
+}
+
+/* Video watermark */
+.video-watermark {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  pointer-events: none;
+  z-index: 10;
+}
+
+.watermark-text {
+  color: rgba(255, 255, 255, 0.15);
+  font-size: 14px;
+  font-weight: 600;
+  text-align: center;
+  transform: rotate(-30deg);
+  white-space: pre-line;
+  line-height: 1.8;
+  letter-spacing: 2px;
+}
+
+/* Video blur on tab switch */
+.video-blurred video {
+  filter: blur(20px);
+  transition: filter 0.3s ease;
+}
+
+/* Card hover effect */
+.card-hover {
+  transition: transform 0.25s ease, box-shadow 0.25s ease;
+}
+
+.card-hover:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 8px 24px rgba(26, 26, 46, 0.15);
+}
+
+/* Button hover scale */
+.btn-hover {
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.btn-hover:hover {
+  transform: scale(1.02);
+}
+
+.btn-hover:active {
+  transform: scale(0.98);
+}
+
+/* Page transition */
+.page-enter {
+  animation: fadeIn 0.3s ease;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(8px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
